@@ -1,6 +1,5 @@
 // DSH Disk Cleanup - popup controller.
 
-const BUILD = 'popup3'
 const statusEl = document.getElementById('status')
 const lastRunEl = document.getElementById('lastRun')
 const totalSizeEl = document.getElementById('totalSize')
@@ -37,7 +36,7 @@ function ask(message) {
 const TIER_LABEL = { safe: '可清理', confirm: '需确认', avoid: '勿动' }
 const TIER_CLASS = { safe: 'safe', confirm: 'confirm', avoid: 'avoid' }
 
-document.getElementById('sub').textContent = `DSH 清理报告 + 浏览器数据 · ${BUILD}`
+document.getElementById('sub').textContent = 'DSH 清理报告 + 浏览器数据'
 
 function renderStructure(structure) {
   totalSizeEl.textContent = structure ? formatBytes(structure.TotalBytes) : '—'
@@ -132,7 +131,7 @@ for (const button of document.querySelectorAll('button[data-preset]')) {
     buttons.forEach((b) => { b.disabled = false })
 
     if (result.ok) {
-      clearResultEl.textContent = `已清除${label}。` + (result.build ? ` (${result.build})` : '')
+      clearResultEl.textContent = `已清除${label}。`
       clearResultEl.className = 'hint ok'
     } else {
       clearResultEl.textContent = `清除失败：${result.error}`
