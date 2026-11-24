@@ -51,7 +51,7 @@ Expected output: `ping/structure/status` return `ok`, an unknown action returns 
 ```powershell
 pwsh -File package.ps1
 ```
-Produces `dist/dsh-disk-cleanup-v1.0.0.zip` containing only runtime files.
+Produces `dist/dsh-disk-cleanup-v1.0.1.zip` containing only runtime files.
 
 Store assets and steps:
 
@@ -101,3 +101,4 @@ Not yet verified: behavior from the published build (Web Store assigns a differe
   them the popup shows a connection hint instead of data.
 - Clearing site data logs you out of sites; that is Chrome's behavior, not a bug.
 - No store screenshots are generated here — they must come from the running extension.
+

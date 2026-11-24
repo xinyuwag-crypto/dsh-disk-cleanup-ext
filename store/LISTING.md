@@ -98,7 +98,6 @@ Requirements
 | --- | --- |
 | `nativeMessaging` | Reads JSON reports produced locally by the companion desktop tool; required for the dashboard feature. |
 | `browsingData` | The extension's second feature is clearing cache, site data, and history at the user's explicit request. |
-| `storage` | Reserved for popup state; no personal data is persisted. |
 
 Single purpose statement:
 

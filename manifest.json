@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
   "name": "DSH Disk Cleanup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reads your DSH cleanup reports and clears browser cache, cookies and history in one click.",
   "minimum_chrome_version": "116",
-  "permissions": ["browsingData", "storage", "nativeMessaging"],
+  "permissions": ["browsingData", "nativeMessaging"],
   "background": {
     "service_worker": "background.js"
   },

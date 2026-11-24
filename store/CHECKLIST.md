@@ -6,7 +6,7 @@ Everything you must do in the Chrome Web Store developer dashboard, in order. It
 ## 0. Before you start
 
 - [ ] Extension loads and the popup shows **已连接** (verified 2026-11-24)
-- [ ] `dist/dsh-disk-cleanup-v1.0.0.zip` rebuilt after the last code change:
+- [ ] `dist/dsh-disk-cleanup-v1.0.1.zip` rebuilt after the last code change:
       `pwsh -File package.ps1`
 
 ## 1. Developer account (**only you**)
@@ -27,7 +27,7 @@ The policy page lives at `docs/privacy/index.html`. Publish it with GitHub Pages
 
 ## 3. Upload
 
-- [ ] **New item** → upload `dist/dsh-disk-cleanup-v1.0.0.zip`
+- [ ] **New item** → upload `dist/dsh-disk-cleanup-v1.0.1.zip`
 - [ ] Name: `DSH Disk Cleanup`
 - [ ] Short description (132 chars):
       `Reads your DSH cleanup reports and clears browser cache, cookies and history in one click.`
@@ -41,7 +41,6 @@ The policy page lives at `docs/privacy/index.html`. Publish it with GitHub Pages
 | --- | --- |
 | `nativeMessaging` | Reads JSON reports produced locally by the companion desktop tool; required for the dashboard feature. |
 | `browsingData` | The extension’s second feature is clearing cache, site data, and history at the user’s explicit request. |
-| `storage` | Reserved for popup state; no personal data is persisted. |
 
 - [ ] Single purpose statement:
       `Show local disk-cleanup reports and clear user-selected browser data.`
@@ -77,3 +76,4 @@ The Web Store assigns a **new extension id**. Until the host knows it, the store
       ```
 - [ ] `pwsh -File native-host\verify-connection.ps1 -ExtensionId <new-id>` → expect all PASS
 - [ ] Uninstall the unpacked dev copy so both do not compete
+

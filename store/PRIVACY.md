@@ -33,7 +33,6 @@ your browser already stores.
 | --- | --- |
 | `nativeMessaging` | Read the local cleanup reports through the companion host installed on your computer. |
 | `browsingData` | Clear the browser data you select. |
-| `storage` | Remember nothing beyond the popup's own state; no personal data is stored. |
 
 ## Removing data
 
