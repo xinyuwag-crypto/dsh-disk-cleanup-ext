@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>DSH Disk Cleanup</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <div>
+      <h1>磁盘清理</h1>
+      <p class="sub" id="sub">DSH 清理报告 + 浏览器数据</p>
+    </div>
+    <span id="status" class="pill pending" title="正在连接本机清理服务">连接中</span>
+  </header>
+
+  <section class="card" id="diskCard">
+    <div class="row">
+      <span class="label">上次清理</span>
+      <strong id="lastRun">—</strong>
+    </div>
+    <div class="row">
+      <span class="label">存储总量</span>
+      <strong id="totalSize">—</strong>
+    </div>
+    <div id="bars" class="bars"></div>
+    <ul id="tips" class="tips"></ul>
+    <p id="hint" class="hint"></p>
+  </section>
+
+  <section class="card">
+    <h2>浏览器数据</h2>
+    <div class="actions">
+      <button data-preset="cache" class="btn">清除缓存</button>
+      <button data-preset="cookies" class="btn">清除站点数据</button>
+      <button data-preset="history" class="btn">清除历史</button>
+    </div>
+    <p id="clearResult" class="hint">只影响当前浏览器配置，不动磁盘文件。</p>
+  </section>
+
+  <footer class="foot">
+    <button id="refresh" class="link">刷新</button>
+    <span class="path">报告：%USERPROFILE%\.dsh\disk-cleanup\reports\</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
