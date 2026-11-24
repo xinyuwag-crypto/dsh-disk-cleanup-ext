@@ -42,11 +42,11 @@ function ConvertTo-Shot([string]$Source, [string]$Caption, [int]$Index) {
 
     $bg = New-Object System.Drawing.Drawing2D.LinearGradientBrush(
         [System.Drawing.Point]::new(0, 0), [System.Drawing.Point]::new(1280, 800),
-        [System.Drawing.ColorTranslator]::FromHtml('#1B2333'), [System.Drawing.ColorTranslator]::FromHtml('#0E131B'))
+        [System.Drawing.ColorTranslator]::FromHtml('#14171D'), [System.Drawing.ColorTranslator]::FromHtml('#0E131B'))
     $g.FillRectangle($bg, 0, 0, 1280, 800)
 
     # Per-side crop removes the window border / stray desktop sliver from the capture.
-    $insetLeft = 26; $insetTop = 14; $insetRight = 14; $insetBottom = 14
+    $insetLeft = 10; $insetTop = 12; $insetRight = 12; $insetBottom = 12
     $srcRect = New-Object System.Drawing.Rectangle $insetLeft, $insetTop,
         ($image.Width - $insetLeft - $insetRight), ($image.Height - $insetTop - $insetBottom)
     $targetH = 660
@@ -59,11 +59,9 @@ function ConvertTo-Shot([string]$Source, [string]$Caption, [int]$Index) {
     $frameBrush = New-Object System.Drawing.SolidBrush ([System.Drawing.ColorTranslator]::FromHtml('#2A3446'))
     $g.FillPath($frameBrush, $frame)
 
-    $clip = New-RoundedPath $x $y $targetW $targetH 12
-    $g.SetClip($clip)
+    # Plain draw on a background that matches the popup, so rounded window corners blend in.
     $dest = New-Object System.Drawing.Rectangle $x, $y, $targetW, $targetH
     $g.DrawImage($image, $dest, $srcRect, [System.Drawing.GraphicsUnit]::Pixel)
-    $g.ResetClip()
 
     if ($Caption) {
         $font = New-Object System.Drawing.Font('Microsoft YaHei UI', 20)
@@ -92,3 +90,7 @@ foreach ($shot in $Shots) {
     $caption = if ($parts.Count -gt 1) { $parts[1] } else { '' }
     ConvertTo-Shot $parts[0] $caption $i
 }
+
+
+
+
