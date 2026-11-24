@@ -51,9 +51,27 @@ Expected output: `ping/structure/status` return `ok`, an unknown action returns 
 ```powershell
 pwsh -File package.ps1
 ```
-Produces `dist/dsh-disk-cleanup-v1.0.0.zip` containing only runtime files. Upload that file in the
-developer dashboard; `store/LISTING.md` has the description, permission justifications and asset
-checklist.
+Produces `dist/dsh-disk-cleanup-v1.0.0.zip` containing only runtime files.
+
+Store assets and steps:
+
+| Item | Where |
+| --- | --- |
+| Submission checklist (field by field) | [store/CHECKLIST.md](store/CHECKLIST.md) |
+| Listing copy, permission justifications | [store/LISTING.md](store/LISTING.md) |
+| Privacy policy page (GitHub Pages ready) | [docs/privacy/index.html](docs/privacy/index.html) → publish `/docs` |
+| Promo tile 440×280 and feature card 1280×800 | `store/`, regenerate with `tools/make-store-assets.ps1` |
+| Connection check after the store assigns a new id | `native-host/verify-connection.ps1` |
+
+Publish the policy: Settings → Pages → Deploy from a branch → `main` + `/docs`, then use
+`https://xinyuwag-crypto.github.io/dsh-disk-cleanup-ext/privacy/`.
+
+After approval, the store id differs from the unpacked id — register it and verify:
+
+```powershell
+pwsh -File native-host\build-host.ps1 -ExtensionId <store-id>
+pwsh -File native-host\verify-connection.ps1 -ExtensionId <store-id>
+```
 
 ## Status
 

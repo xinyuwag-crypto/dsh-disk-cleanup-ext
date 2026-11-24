@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DSH Disk Cleanup — Privacy Policy</title>
+  <style>
+    :root { color-scheme: light dark; --fg:#16181d; --muted:#5b6472; --line:#e5e7eb; --bg:#fff; --accent:#4167c8; }
+    @media (prefers-color-scheme: dark) { :root { --fg:#e8eaed; --muted:#9aa0a6; --line:#2a2f37; --bg:#16181d; --accent:#7b9bf0; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 48px 20px; background: var(--bg); color: var(--fg);
+           font: 16px/1.7 "Segoe UI", "Microsoft YaHei UI", system-ui, sans-serif; }
+    main { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 28px; margin: 0 0 6px; }
+    .sub { color: var(--muted); margin: 0 0 32px; font-size: 14px; }
+    h2 { font-size: 18px; margin: 32px 0 10px; }
+    p, li { color: var(--fg); }
+    ul { padding-left: 22px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    code { background: rgba(127,127,127,.14); padding: 1px 5px; border-radius: 4px; font-size: .92em; }
+    .note { border-left: 3px solid var(--accent); padding: 8px 0 8px 14px; color: var(--muted); }
+    footer { margin-top: 40px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 16px; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+<main>
+  <h1>DSH Disk Cleanup — Privacy Policy</h1>
+  <p class="sub">Last updated: 2026-11-24 · Applies to the Chrome extension “DSH Disk Cleanup”</p>
+
+  <p>DSH Disk Cleanup（以下简称“本扩展”）只有一个用途：显示你自己电脑上由 DSH 清理工具生成的存储报告，
+     以及清理浏览器自己保存的数据。</p>
+
+  <h2>1. 本扩展读取什么</h2>
+  <ul>
+    <li>位于 <code>%USERPROFILE%\.dsh\disk-cleanup\reports\</code> 的清理报告：
+        <code>structure.json</code>、<code>latest.json</code>、<code>structure.md</code>。</li>
+    <li>这些文件通过你自己安装并运行的本地宿主程序（native messaging）读取，**不会离开你的电脑**。</li>
+    <li>报告内容只显示在扩展弹窗中，不上传、不写入云端、不做任何统计。</li>
+  </ul>
+
+  <h2>2. 本扩展会修改什么</h2>
+  <ul>
+    <li>仅在你明确选择并二次确认后，清理浏览器数据：缓存、站点数据（Cookie、localStorage、IndexedDB、文件系统）、
+        浏览历史与下载记录。</li>
+    <li>使用 Chrome 官方 <code>browsingData</code> API 完成，不涉及磁盘文件。</li>
+  </ul>
+
+  <h2>3. 本扩展不会做什么</h2>
+  <ul>
+    <li>不读取、不删除、不上传磁盘上的任何文件。磁盘清理由独立的桌面工具完成，由你本人执行。</li>
+    <li>没有分析、遥测、广告，也不加载远程代码。</li>
+    <li>不访问网页内容，不读取标签页，不追踪浏览行为。</li>
+  </ul>
+
+  <h2>4. 权限说明</h2>
+  <table>
+    <thead><tr><th>权限</th><th>用途</th></tr></thead>
+    <tbody>
+      <tr><td><code>nativeMessaging</code></td><td>通过本机宿主读取清理报告。</td></tr>
+      <tr><td><code>browsingData</code></td><td>执行你选择的浏览器数据清理。</td></tr>
+      <tr><td><code>storage</code></td><td>仅保存弹窗自身状态，不存储个人数据。</td></tr>
+    </tbody>
+  </table>
+
+  <h2>5. 数据删除</h2>
+  <p>卸载扩展后，删除 <code>%USERPROFILE%\.dsh\disk-cleanup\</code> 即可同时移除报告与隔离区。
+     已清除的浏览器数据无法由本扩展恢复。</p>
+
+  <h2>6. 联系方式</h2>
+  <p>隐私相关问题请在扩展仓库提交 issue：
+     <a href="https://github.com/xinyuwag-crypto/dsh-disk-cleanup-ext/issues">dsh-disk-cleanup-ext/issues</a>。</p>
+
+  <p class="note">English summary: this extension reads local cleanup reports through a native
+     messaging host you install yourself, and clears browser data only when you ask. It uploads
+     nothing, contains no analytics, and never touches files on disk.</p>
+
+  <footer>Source: <a href="https://github.com/xinyuwag-crypto/dsh-disk-cleanup-ext">github.com/xinyuwag-crypto/dsh-disk-cleanup-ext</a></footer>
+</main>
+</body>
+</html>
